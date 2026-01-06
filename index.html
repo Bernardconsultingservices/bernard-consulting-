@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flip Analysis Pro | Bernard Consulting Services</title>
+    <title>Bernard Consulting Services | Master Financial Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
     <style>
         :root {
             --brand-blue: #0a2540;
@@ -18,185 +16,311 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Open Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--light-bg); }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--light-bg); scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--brand-blue); }
 
-        nav { background: var(--white); padding: 1.2rem 10%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        /* Navigation */
+        nav {
+            background: var(--white); padding: 1.2rem 10%;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 100;
+        }
         .logo { font-weight: 700; font-size: 1.1rem; color: var(--brand-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
-        .page-header { background: var(--brand-blue); color: var(--white); padding: 40px 10%; text-align: center; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--brand-blue); font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--brand-green); }
 
-        .container-narrow { max-width: 700px; margin: -30px auto 60px; }
-        .calc-card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 100px 10%; text-align: center;
+        }
+        .hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; max-width: 850px; margin-left: auto; margin-right: auto; }
 
-        .input-group { display: flex; flex-direction: column; margin-bottom: 15px; }
-        label { font-size: 0.7rem; font-weight: 700; margin-bottom: 2px; color: var(--brand-blue); text-transform: uppercase; }
-        .desc { font-size: 0.7rem; color: #666; margin-bottom: 5px; }
-        input { padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; color: var(--brand-blue); background: #fcfcfc; }
+        /* Content Structure */
+        .section { padding: 80px 10%; }
+        .container-narrow { max-width: 900px; margin: 0 auto; }
+        .btn { display: inline-block; padding: 15px 35px; background: var(--brand-green); color: var(--brand-blue); text-decoration: none; border-radius: 5px; font-weight: 700; transition: 0.3s; border: none; cursor: pointer; text-align: center; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,209,178,0.3); }
+        .btn-small { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--brand-blue); color: var(--white); text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.8rem; text-align: center; }
         
-        .section-label { border-bottom: 2px solid var(--brand-green); margin: 25px 0 15px; padding-bottom: 5px; font-size: 0.8rem; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; }
+        /* Cards & Grids */
+        .calc-card, .edu-card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 35px; border-radius: 8px; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+        .card:hover { border-color: var(--brand-green); transform: translateY(-5px); }
 
-        .btn-container { display: flex; gap: 10px; margin-top: 25px; }
-        .analyze-btn { flex: 2; padding: 18px; background: var(--brand-green); color: var(--brand-blue); border: none; border-radius: 6px; font-weight: 700; cursor: pointer; }
-        .pdf-btn { flex: 1; padding: 18px; background: var(--brand-blue); color: var(--white); border: none; border-radius: 6px; font-weight: 600; cursor: pointer; display: none; }
-        
-        #result { margin-top: 30px; padding: 25px; border-radius: 8px; background: #f8fafc; border: 1px solid var(--border-color); display: none; }
-        .stat-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; border-bottom: 1px solid #edf2f7; padding-bottom: 5px; color: #0a2540; }
-        .profit-text { font-size: 1.5rem; font-weight: 700; text-align: center; margin-top: 15px; display: block; }
-        .green { color: #2d6a4f; }
-        .red { color: #a61e1e; }
+        /* Calculator Styling */
+        .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 25px; }
+        .input-group { display: flex; flex-direction: column; margin-bottom: 15px; text-align: left; }
+        label { font-size: 0.7rem; font-weight: 700; margin-bottom: 8px; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 0.5px; }
+        input { padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; color: var(--brand-blue); }
+        .proforma-header { border-bottom: 2px solid var(--brand-green); margin: 30px 0 15px; padding-bottom: 5px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; color: var(--brand-blue); }
+        .subtotal-row { display: flex; justify-content: space-between; padding: 12px; background: #f8fafc; border-radius: 4px; margin: 10px 0; font-weight: 600; font-size: 0.9rem; }
+        .result-display { background: var(--brand-blue); color: var(--white); padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px; }
+        .price-tag { font-size: 2.2rem; font-weight: 700; color: var(--brand-green); display: block; }
 
-        /* PDF HIDDEN AREA - Force block display, move off-screen */
-        #pdf-export-element {
-            position: absolute;
-            left: -5000px;
-            top: 0;
-            width: 750px;
-            background: white;
-            padding: 40px;
-            color: #000000;
+        /* Footer */
+        footer { background: var(--brand-blue); color: var(--white); padding: 60px 10% 40px; text-align: center; }
+        .footer-links { margin-top: 25px; display: flex; justify-content: center; gap: 25px; }
+        .footer-links button { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 0.85rem; cursor: pointer; text-decoration: underline; transition: 0.3s; }
+        .footer-links button:hover { color: var(--brand-green); }
+
+        /* MODAL SYSTEM */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; }
+        .modal-content { background-color: var(--white); margin: 40px auto; padding: 40px; border-radius: 12px; width: 90%; max-width: 800px; position: relative; }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 35px; font-weight: bold; cursor: pointer; color: var(--brand-blue); line-height: 1; }
+        .legal-body { max-height: 60vh; overflow-y: scroll; padding-right: 15px; margin-top: 20px; text-align: left; }
+        .legal-body h3 { margin: 20px 0 10px; font-size: 1.1rem; color: var(--brand-blue); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .section { padding: 60px 5%; }
+            .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-<nav><a href="#" class="logo">Bernard Consulting</a></nav>
+<nav>
+    <div class="logo"></div> 
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#estimators">Estimators</a>
+        <a href="#education">Education</a>
+        <a href="#services">Services</a>
+    </div>
+</nav>
 
-<section class="page-header">
-    <h1>Flip Analysis Pro</h1>
-    <p style="opacity: 0.8;">Institutional-Grade Underwriting</p>
+
+<section class="hero" style="display: flex; flex-direction: column; align-items: center;">
+    <img src="logo.jpg" alt="Bernard Consulting Services Logo" style="height: 120px; width: auto; margin-bottom: 25px; background: white; padding: 10px; border-radius: 8px;">
+    
+    <h1>The World's Leading Lender Match Maker for Commercial Real Estate Professionals and Entrepreneurs.</h1>
+    <p>Empowering founders and property owners with $250M+ in business purpose loans & Expert CFO Advisory. 
+
+We guarantee speed, the best financing rates and terms by matching your deal with top lenders in the industry who are best positioned to fund your deal. Our Institutional-Grade Loan Options Report Fee is just $500!</p> Close deals 10x faster! No origination fees at closing! Leverage our database of 3,000 lender relationships and matching capabilities.
+
+Agency, CMBS, LifeCo, Local, Regional, Credit Unions, Hard Money And Small Balance Lenders.</p>
+    <a href="https://form.jotform.com/252915952636163" class="btn">Get Institutional-Grade Loan Options Report</a> 
 </section>
 
-<div class="container-narrow">
+
+<div class="container-narrow" id="estimators" style="margin-top: -60px;">
+    
     <div class="calc-card">
-        <div class="input-group">
-            <label>Property Address</label>
-            <input type="text" id="propAddress" placeholder="e.g. 123 Main St">
+        <h3 style="text-align: center; margin-bottom: 25px;">Commercial Loan Estimator</h3>
+        <div class="calc-grid">
+            <div class="input-group"><label>Loan Amount ($)</label><input type="number" id="loanAmt" value="750000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="loanRate" value="7.25" step="0.1" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Term (Years)</label><input type="number" id="loanTerm" value="25" oninput="runAllCalcs()"></div>
         </div>
+        <div class="result-display">
+            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Estimated Monthly Payment</span>
+            <span id="monthlyLabel" class="price-tag">$0.00</span>
+        </div>
+    </div>
+
+    <div class="calc-card">
+        <h3 style="text-align: center; margin-bottom: 10px;">Net Cash Flow Proforma</h3>
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 25px;">Advanced Property Performance Analysis (Management/professional services accounts for legal, accounting, leasing and marketing expenses) </p>
         
-        <div class="section-label">1. Revenue & Acquisition</div>
-        <div class="input-group">
-            <label>After Repair Value (ARV)</label>
-            <span class="desc">Estimated value after renovations.</span>
-            <input type="number" id="arv" placeholder="0.00">
+        <div class="proforma-header">Annual Income</div>
+        <div class="calc-grid">
+            <div class="input-group"><label>Gross Potential Rent ($)</label><input type="number" id="p_gpr" value="120000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Other Income ($)</label><input type="number" id="p_other" value="2500" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Vacancy Loss ($)</label><input type="number" id="p_vac" value="6000" oninput="runAllCalcs()"></div>
         </div>
-        <div class="input-group">
-            <label>Purchase Price</label>
-            <input type="number" id="purchase" placeholder="0.00">
+        <div class="subtotal-row"><span>Effective Gross Income (EGI)</span><span id="p_egiText">$0</span></div>
+
+        <div class="proforma-header">Operating Expenses</div>
+        <div class="calc-grid">
+            <div class="input-group"><label>Taxes & Insurance</label><input type="number" id="p_tax" value="18500" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Maint. & Repairs</label><input type="number" id="p_maint" value="7500" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Mgmt/Professional Services</label><input type="number" id="p_mgmt" value="9600" oninput="runAllCalcs()"></div>
+        </div>
+        <div class="subtotal-row"><span>Total Annual OpEx</span><span id="p_opexText" style="color:#e53e3e">$0</span></div>
+
+        <div class="proforma-header">Debt & Reserves</div>
+        <div class="calc-grid">
+            <div class="input-group"><label>Annual Debt Service</label><input type="number" id="p_debt" value="55000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Replacement Reserve</label><input type="number" id="p_res" value="3000" oninput="runAllCalcs()"></div>
         </div>
 
-        <div class="section-label">2. Financing</div>
-        <div class="input-group">
-            <label>Loan Amount</label>
-            <input type="number" id="loanAmt" placeholder="0.00">
+        <div class="result-display" style="background: #2d3748;">
+            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (After Debt)</span>
+            <span id="p_ncfText" class="price-tag">$0.00</span>
         </div>
-
-        <div class="section-label">3. Project Expenses</div>
-        <div class="input-group">
-            <label>Closing Cost & Due Diligence</label>
-            <span class="desc">Lender points, permits, title, legal, appraisal.</span>
-            <input type="number" id="closing" placeholder="0.00">
-        </div>
-        <div class="input-group">
-            <label>Reserves</label>
-            <span class="desc">Cash for buffer & cost overruns.</span>
-            <input type="number" id="reserves" placeholder="0.00">
-        </div>
-        <div class="input-group">
-            <label>Rehab Cost</label>
-            <input type="number" id="rehab" placeholder="0.00">
-        </div>
-        <div class="input-group">
-            <label>Holding Cost</label>
-            <span class="desc">Insurance, taxes, utilities, interest.</span>
-            <input type="number" id="holding" placeholder="0.00">
-        </div>
-        <div class="input-group">
-            <label>Selling Cost</label>
-            <span class="desc">Commissions & transfer tax (Paid at closing).</span>
-            <input type="number" id="selling" placeholder="0.00">
-        </div>
-
-        <div class="btn-container">
-            <button class="analyze-btn" onclick="runAnalysis()">Run Analysis</button>
-            <button id="pdfBtn" class="pdf-btn" onclick="exportPDF()">Download PDF Report</button>
-        </div>
-
-        <div id="result"></div>
     </div>
 </div>
 
-<div id="pdf-export-element">
-    <div style="border-bottom: 4px solid #00d1b2; padding-bottom: 10px;">
-        <h1 style="font-size: 24pt; margin: 0;">Project Underwriting Report</h1>
-        <div id="pdf-addr-out" style="font-size: 16pt; margin-top: 10px; font-weight: bold;"></div>
-        <div style="font-size: 10pt; color: #555;">Bernard Consulting Services | <span id="pdf-date-out"></span></div>
+<section class="section" id="about">
+    <div class="container-narrow">
+        <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Why Bernard Consulting?</h2>
+        <p>Bernard Consulting Services LLC stands at the intersection of <strong>Commercial Mortgage Brokerage</strong> and <strong>Strategic Financial Management</strong>. We aren't just debt brokers; we are decades-long experts in M&A, accounting, and property management.</p>
+        <p style="margin-top: 15px;">Our unique "Fractional CFO" approach means we don't just find you a loan; we analyze your capital structure, maximize your profit potential, and ensure your dream has the financial foundation to succeed.</p>
     </div>
+</section>
 
-    <div id="pdf-stats-out" style="margin: 30px 0;"></div>
+<section class="section" id="education" style="background: #f8fafc;">
+    <div class="container-narrow">
+        <div class="edu-card" style="text-align: center; border-top: 5px solid var(--brand-green);">
+            <h2 style="margin-bottom: 15px;">Intro to Commercial Real Estate Workshop</h2>
+            <p><strong>Every Saturday | 5:00 PM – 8:00 PM EST via Zoom</strong></p>
+            <p style="margin: 20px 0;">Join our live 3-hour intensive session covering property underwriting, debt coverage ratios, and market analysis. Perfect for new investors and founders.</p>
+            <a href="https://form.jotform.com/253245233269154" class="btn">Register for Workshop ($125)</a>
+        </div>
+    </div>
+</section>
 
-    <div style="background: #f0f4f8; border: 1px solid #0a2540; padding: 20px;">
-        <h3 style="margin-top: 0; border-bottom: 1px solid #0a2540;">Upfront Capital Summary</h3>
-        <table style="width: 100%; font-size: 12pt; border-collapse: collapse;">
-            <tr><td style="padding: 5px 0;">Upfront Project Costs:</td><td id="pdf-cost-out" style="text-align: right; font-weight: bold;"></td></tr>
-            <tr><td style="padding: 5px 0;">Total Loan Amount:</td><td id="pdf-loan-out" style="text-align: right; font-weight: bold;"></td></tr>
-            <tr style="border-top: 2px solid #0a2540;"><td style="padding: 10px 0; font-size: 14pt; font-weight: bold;">TOTAL UPFRONT CASH:</td><td id="pdf-cash-out" style="text-align: right; font-size: 14pt; font-weight: bold;"></td></tr>
-        </table>
+<section class="section" id="services">
+    <h2 style="text-align: center; margin-bottom: 40px;">Our Financial Solutions</h2>
+    <div class="services-grid">
+        <div class="card">
+            <div>
+                <h3>Investment Real Estate Loans</h3>
+                <p>Multi-family, Retail, and Hospitality financing with LTVs up to 90%.</p>
+            </div>
+            <a href="https://form.jotform.com/252915952636163" class="btn-small">Get Started</a>
+        </div>
+        <div class="card">
+            <div>
+                <h3>Non Real Estate Business Funding</h3>
+                <p>Working capital, equipment funding and asset based loans up to $10,000,000.</p>
+            </div>
+            <a href="https://pci.jotform.com/form/252953082084156" class="btn-small">Apply Now</a>
+        </div>
+        <div class="card">
+            <div>
+                <h3>Fractional CFO</h3>
+                <p>Strategic financial management, cash flow analysis, and growth advisory.</p>
+            </div>
+            <a href="https://pci.jotform.com/form/252985227929170" class="btn-small">Request Pricing</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container-narrow">
+        <h2 style="color:var(--white);">Contact Our Office</h2>
+        <p style="margin: 15px 0;"><a href="mailto:Bernardconsultingservices@gmail.com" style="color:var(--brand-green); font-size: 1rem; font-weight: 600; text-decoration: none;">Bernardconsultingservices@gmail.com</a></p>
+
+        <div class="footer-links">
+            <button onclick="openLegal('terms')">Terms & Conditions</button>
+            <button onclick="openLegal('privacy')">Privacy Policy</button>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Bernard Consulting Services LLC. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<div id="legalModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeLegal()">&times;</span>
+        
+        <div id="termsContent" style="display:none;">
+            <h2>Terms and Conditions</h2>
+            <div class="legal-body">
+                <p>Welcome to Bernard Consulting Services LLC. By accessing our website, you agree to these terms.</p>
+                <h3>1. Services Disclosure</h3>
+                <p>Estimates provided by our calculators are for illustrative purposes only and do not constitute a formal loan offer or financial advice.</p>
+                <h3>2. Intellectual Property</h3>
+                <p>The content, logos, and tools on this site are the property of Bernard Consulting Services LLC.</p>
+                <h3>3. Limitation of Liability</h3>
+                <p>We are not liable for any financial decisions made based on the information provided on this website.</p>
+                <h3>4. Governing Law</h3>
+                <p>These terms are governed by the laws of the United States. Direct inquiries to Bernardconsultingservices@gmail.com.</p>
+            </div>
+        </div>
+
+        <div id="privacyContent" style="display:none;">
+            <h2>Privacy Policy</h2>
+            <div class="legal-body">
+                <p>Your privacy is vital to us. This policy explains how we handle your data.</p>
+                <h3>1. Data Collection</h3>
+                <p>We collect personal information (name, email, phone) provided through our Jotform application links to process your financial requests.</p>
+                <h3>2. Data Protection</h3>
+                <p>We implement industry-standard security protocols to protect your sensitive financial data from unauthorized access.</p>
+                <h3>3. Third-Party Sharing</h3>
+                <p>We only share your data with trusted lending partners and financial institutions necessary to fulfill your specific loan or funding request.</p>
+                <h3>4. Your Rights</h3>
+                <p>You may contact us at any time to request the deletion or correction of your personal information.</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-function runAnalysis() {
-    const v = (id) => parseFloat(document.getElementById(id).value) || 0;
-    
-    const arv = v('arv'), purchase = v('purchase'), loan = v('loanAmt'), 
-          rehab = v('rehab'), closing = v('closing'), reserves = v('reserves'), 
-          holding = v('holding'), selling = v('selling');
-    
-    const totalProjectCost = purchase + rehab + closing + reserves + holding + selling;
-    const upfrontCosts = purchase + rehab + closing + reserves + holding;
-    const profit = arv - totalProjectCost;
-    const upfrontCash = upfrontCosts - loan;
+    // COMBINED CALCULATION ENGINE
+    function runAllCalcs() {
+        // Simple Loan Calc
+        const lAmtInput = document.getElementById('loanAmt');
+        const lRateInput = document.getElementById('loanRate');
+        const lTermInput = document.getElementById('loanTerm');
+        
+        const lAmt = parseFloat(lAmtInput.value) || 0;
+        const lRate = (parseFloat(lRateInput.value) / 100) / 12;
+        const lTerm = (parseFloat(lTermInput.value) || 0) * 12;
+        
+        if (lRate > 0 && lTerm > 0) {
+            const lX = Math.pow(1 + lRate, lTerm);
+            const lMonthly = (lAmt * lX * lRate) / (lX - 1);
+            document.getElementById('monthlyLabel').innerText = isFinite(lMonthly) && lMonthly > 0 ? 
+                '$' + lMonthly.toLocaleString(undefined,{minimumFractionDigits: 2, maximumFractionDigits: 2}) : '$0.00';
+        } else {
+            document.getElementById('monthlyLabel').innerText = '$0.00';
+        }
 
-    const purcRehabPct = arv > 0 ? ((purchase + rehab) / arv) * 100 : 0;
-    const totCostPct = arv > 0 ? (totalProjectCost / arv) * 100 : 0;
-    const profitPct = arv > 0 ? (profit / arv) * 100 : 0;
-    const cocReturn = upfrontCash > 0 ? (profit / upfrontCash) * 100 : 0;
-    
-    const resHtml = `
-        <div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Purchase + Rehab as % of ARV: <strong>${purcRehabPct.toFixed(1)}%</strong></div>
-        <div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Total Cost as % of ARV: <strong>${totCostPct.toFixed(1)}%</strong></div>
-        <div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Profit as % of ARV: <strong>${profitPct.toFixed(1)}%</strong></div>
-        <div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Upfront Cash Required: <strong>$${upfrontCash.toLocaleString()}</strong></div>
-        <div style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Cash-on-Cash Return: <strong>${cocReturn.toFixed(1)}%</strong></div>
-        <div style="font-size: 20pt; font-weight: bold; text-align: center; margin-top: 15px;">Net Profit: $${profit.toLocaleString()}</div>
-    `;
+        // Proforma Calc
+        const p_gpr = parseFloat(document.getElementById('p_gpr').value) || 0;
+        const p_other = parseFloat(document.getElementById('p_other').value) || 0;
+        const p_vac = parseFloat(document.getElementById('p_vac').value) || 0;
+        const p_egi = (p_gpr + p_other) - p_vac;
+        document.getElementById('p_egiText').innerText = '$' + p_egi.toLocaleString();
 
-    document.getElementById('result').style.display = 'block';
-    document.getElementById('result').innerHTML = resHtml;
-    document.getElementById('pdfBtn').style.display = 'block';
+        const p_tax = parseFloat(document.getElementById('p_tax').value) || 0;
+        const p_maint = parseFloat(document.getElementById('p_maint').value) || 0;
+        const p_mgmt = parseFloat(document.getElementById('p_mgmt').value) || 0;
+        const p_opex = p_tax + p_maint + p_mgmt;
+        document.getElementById('p_opexText').innerText = '-$' + p_opex.toLocaleString();
 
-    // Immediate injection into the PDF template fields
-    document.getElementById('pdf-addr-out').innerText = document.getElementById('propAddress').value || "Project Analysis";
-    document.getElementById('pdf-date-out').innerText = new Date().toLocaleDateString();
-    document.getElementById('pdf-stats-out').innerHTML = resHtml;
-    document.getElementById('pdf-cost-out').innerText = '$' + upfrontCosts.toLocaleString();
-    document.getElementById('pdf-loan-out').innerText = '$' + loan.toLocaleString();
-    document.getElementById('pdf-cash-out').innerText = '$' + upfrontCash.toLocaleString();
-}
+        const p_debt = parseFloat(document.getElementById('p_debt').value) || 0;
+        const p_res = parseFloat(document.getElementById('p_res').value) || 0;
+        const p_ncf = p_egi - p_opex - p_debt - p_res;
+        document.getElementById('p_ncfText').innerText = '$' + p_ncf.toLocaleString(undefined, {minimumFractionDigits: 2});
+    }
 
-function exportPDF() {
-    const element = document.getElementById('pdf-export-element');
-    const opt = {
-        margin: 0.5,
-        filename: 'Underwriting-Report.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(element).save();
-}
+    // MODAL TAB SYSTEM
+    function openLegal(tab) {
+        const modal = document.getElementById('legalModal');
+        const terms = document.getElementById('termsContent');
+        const privacy = document.getElementById('privacyContent');
+        
+        modal.style.display = 'block';
+        if (tab === 'terms') {
+            terms.style.display = 'block';
+            privacy.style.display = 'none';
+        } else {
+            terms.style.display = 'none';
+            privacy.style.display = 'block';
+        }
+    }
+
+    function closeLegal() {
+        document.getElementById('legalModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('legalModal')) closeLegal();
+    }
+
+    window.onload = runAllCalcs;
 </script>
+
 </body>
 </html>
+
+
 
 
