@@ -89,7 +89,6 @@
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#estimators">Estimators</a>
-        <a href="#education">Education</a>
         <a href="#services">Services</a>
     </div>
 </nav>
@@ -102,7 +101,6 @@
     <p>Empowering founders and property owners with $250M+ in business purpose loans & Expert CFO Advisory. 
 
 We guarantee speed, the best financing rates and terms by matching your deal with top lenders in the industry who are best positioned to fund your business objectives.</p>
-    <a href="https://www.paypal.com/ncp/payment/2MTCSUNZ52372" class="btn">Get Institutional-Grade Loan Options Report</a> 
 </section>
 
 
@@ -122,34 +120,33 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
     </div>
 
     <div class="calc-card">
-        <h3 style="text-align: center; margin-bottom: 10px;">Net Cash Flow Proforma</h3>
-        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 25px;">Advanced Property Performance Analysis (Management/professional services accounts for legal, accounting, leasing and marketing expenses) </p>
+        <h3 style="text-align: center; margin-bottom: 10px;">Business Cash Flow Proforma</h3>
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 25px;">Advanced Business Performance Analysis (Revenue, COGS, and Operating Expenses)</p>
         
-        <div class="proforma-header">Annual Income</div>
+        <div class="proforma-header">Revenue & Direct Costs</div>
         <div class="calc-grid">
-            <div class="input-group"><label>Gross Potential Rent ($)</label><input type="number" id="p_gpr" value="120000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Other Income ($)</label><input type="number" id="p_other" value="2500" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Vacancy Loss ($)</label><input type="number" id="p_vac" value="6000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Gross Revenue ($)</label><input type="number" id="b_rev" value="1500000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Cost of Goods Sold (COGS) ($)</label><input type="number" id="b_cogs" value="600000" oninput="runAllCalcs()"></div>
         </div>
-        <div class="subtotal-row"><span>Effective Gross Income (EGI)</span><span id="p_egiText">$0</span></div>
+        <div class="subtotal-row"><span>Gross Profit</span><span id="b_gpText">$0</span></div>
 
         <div class="proforma-header">Operating Expenses</div>
         <div class="calc-grid">
-            <div class="input-group"><label>Taxes & Insurance</label><input type="number" id="p_tax" value="18500" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Maint. & Repairs</label><input type="number" id="p_maint" value="7500" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Mgmt/Professional Services</label><input type="number" id="p_mgmt" value="9600" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Payroll & Benefits ($)</label><input type="number" id="b_pay" value="350000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Marketing & Ads ($)</label><input type="number" id="b_mark" value="75000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>General & Admin ($)</label><input type="number" id="b_ga" value="120000" oninput="runAllCalcs()"></div>
         </div>
-        <div class="subtotal-row"><span>Total Annual OpEx</span><span id="p_opexText" style="color:#e53e3e">$0</span></div>
+        <div class="subtotal-row"><span>Total Annual OpEx</span><span id="b_opexText" style="color:#e53e3e">$0</span></div>
 
-        <div class="proforma-header">Debt & Reserves</div>
+        <div class="proforma-header">Debt & Taxes</div>
         <div class="calc-grid">
-            <div class="input-group"><label>Annual Debt Service</label><input type="number" id="p_debt" value="55000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Replacement Reserve</label><input type="number" id="p_res" value="3000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Annual Debt Service ($)</label><input type="number" id="b_debt" value="85000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Estimated Taxes ($)</label><input type="number" id="b_tax" value="45000" oninput="runAllCalcs()"></div>
         </div>
 
         <div class="result-display" style="background: #2d3748;">
-            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (After Debt)</span>
-            <span id="p_ncfText" class="price-tag">$0.00</span>
+            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (After Debt & Taxes)</span>
+            <span id="b_ncfText" class="price-tag">$0.00</span>
         </div>
     </div>
 </div>
@@ -157,19 +154,8 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
 <section class="section" id="about">
     <div class="container-narrow">
         <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Why Bernard Consulting?</h2>
-        <p>Bernard Consulting Services LLC stands at the intersection of <strong>Commercial Mortgage Brokerage</strong> and <strong>Strategic Financial Management</strong>. We aren't just debt brokers; we are decades-long experts in M&A, accounting, and property management.</p>
+        <p>Bernard Consulting Services LLC specializes in <strong>Strategic Financial Management</strong>. We aren't just debt brokers; we are decades-long experts in M&A, accounting, and property management.</p>
         <p style="margin-top: 15px;">Our unique "Fractional CFO" approach means we don't just find you a loan; we analyze your capital structure, maximize your profit potential, and ensure your dream has the financial foundation to succeed.</p>
-    </div>
-</section>
-
-<section class="section" id="education" style="background: #f8fafc;">
-    <div class="container-narrow">
-        <div class="edu-card" style="text-align: center; border-top: 5px solid var(--brand-green);">
-            <h2 style="margin-bottom: 15px;">Intro To Commercial Real Estate Finance Course</h2>
-            <p><strong>Every Saturday | 5:00 PM – 8:00 PM EST via Zoom</strong></p>
-            <p style="margin: 20px 0;">Join our live 3-hour intensive session covering property underwriting, debt coverage ratios, and market analysis. Perfect for new investors and founders. You'll receive a zoom code or link within 24 hours after we process your payment. Please register 24 hours in advance before course start time and date. The course runs every saturday from 5pm to 8pm, eastern standard time.</p>
-            <a href="https://www.paypal.com/ncp/payment/A2D9D8MGW44ZS">Register for Course ($125)</a>
-        </div>
     </div>
 </section>
 
@@ -183,13 +169,15 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
             </div>
             <a href="https://form.jotform.com/260115148306145">Apply Now</a>
         </div>
+        
         <div class="card">
             <div>
                 <h3>Non Real Estate Business Funding</h3>
-                <p>Working capital, equipment funding and asset based loans up to $10,000,000.</p>
+                <p>Lines of credit, refinance, loans for equipment, inventory, and working capital. Get funded in 3-7 business days, minimal docs needed and loans up to $15 million. Minimum 585 credit score.</p>
             </div>
-            <a href="https://form.jotform.com/252953082084156">ApplyNow</a>
+            <a href="https://form.jotform.com/252953082084156">Apply Now</a>
         </div>
+        
         <div class="card">
             <div>
                 <h3>Fractional CFO</h3>
@@ -270,23 +258,25 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
             document.getElementById('monthlyLabel').innerText = '$0.00';
         }
 
-        // Proforma Calc
-        const p_gpr = parseFloat(document.getElementById('p_gpr').value) || 0;
-        const p_other = parseFloat(document.getElementById('p_other').value) || 0;
-        const p_vac = parseFloat(document.getElementById('p_vac').value) || 0;
-        const p_egi = (p_gpr + p_other) - p_vac;
-        document.getElementById('p_egiText').innerText = '$' + p_egi.toLocaleString();
+        // Business Cash Flow Calc (Replaced RE Proforma)
+        const b_rev = parseFloat(document.getElementById('b_rev').value) || 0;
+        const b_cogs = parseFloat(document.getElementById('b_cogs').value) || 0;
+        
+        const b_gp = b_rev - b_cogs;
+        document.getElementById('b_gpText').innerText = '$' + b_gp.toLocaleString();
 
-        const p_tax = parseFloat(document.getElementById('p_tax').value) || 0;
-        const p_maint = parseFloat(document.getElementById('p_maint').value) || 0;
-        const p_mgmt = parseFloat(document.getElementById('p_mgmt').value) || 0;
-        const p_opex = p_tax + p_maint + p_mgmt;
-        document.getElementById('p_opexText').innerText = '-$' + p_opex.toLocaleString();
+        const b_pay = parseFloat(document.getElementById('b_pay').value) || 0;
+        const b_mark = parseFloat(document.getElementById('b_mark').value) || 0;
+        const b_ga = parseFloat(document.getElementById('b_ga').value) || 0;
+        
+        const b_opex = b_pay + b_mark + b_ga;
+        document.getElementById('b_opexText').innerText = '-$' + b_opex.toLocaleString();
 
-        const p_debt = parseFloat(document.getElementById('p_debt').value) || 0;
-        const p_res = parseFloat(document.getElementById('p_res').value) || 0;
-        const p_ncf = p_egi - p_opex - p_debt - p_res;
-        document.getElementById('p_ncfText').innerText = '$' + p_ncf.toLocaleString(undefined, {minimumFractionDigits: 2});
+        const b_debt = parseFloat(document.getElementById('b_debt').value) || 0;
+        const b_tax = parseFloat(document.getElementById('b_tax').value) || 0;
+        
+        const b_ncf = b_gp - b_opex - b_debt - b_tax;
+        document.getElementById('b_ncfText').innerText = '$' + b_ncf.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
     }
 
     // MODAL TAB SYSTEM
@@ -318,7 +308,3 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
 
 </body>
 </html>
-
-
-
-
