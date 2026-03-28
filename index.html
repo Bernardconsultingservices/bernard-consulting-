@@ -90,6 +90,7 @@
         <a href="#about">About</a>
         <a href="#estimators">Estimators</a>
         <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
     </div>
 </nav>
 
@@ -97,10 +98,8 @@
 <section class="hero" style="display: flex; flex-direction: column; align-items: center;">
     <img src="logo.jpg" alt="Bernard Consulting Services Logo" style="height: 120px; width: auto; margin-bottom: 25px; background: white; padding: 10px; border-radius: 8px;">
     
-    <h1>The World's Leading Lender Match Maker For Business Owners.</h1>
-    <p>Empowering founders and property owners with $250M+ in business purpose loans & Expert CFO Advisory. 
-
-We guarantee speed, the best financing rates and terms by matching your deal with top lenders in the industry who are best positioned to fund your business objectives.</p>
+    <h1>Connecting businesses to capital nationwide.</h1>
+    <p>Empowering operating businesses with $250M+ in business purpose loans & Expert CFO Advisory. We guarantee speed, the best financing rates and terms by partnering with top tier lenders who are best positioned to fund your business objectives. Our strategic relationships with banking partners allows us to move with speed and precision so you can preserve your hard earned cash.</p>
 </section>
 
 
@@ -154,7 +153,7 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
 <section class="section" id="about">
     <div class="container-narrow">
         <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Why Bernard Consulting?</h2>
-        <p>Bernard Consulting Services LLC specializes in <strong>Strategic Financial Management</strong>. We aren't just debt brokers; we are decades-long experts in M&A, accounting, and property management.</p>
+        <p>Bernard Consulting Services LLC specializes in <strong>Strategic Financial Management</strong>. We aren't just debt brokers; we are decades-long experts in M&A and accounting.</p>
         <p style="margin-top: 15px;">Our unique "Fractional CFO" approach means we don't just find you a loan; we analyze your capital structure, maximize your profit potential, and ensure your dream has the financial foundation to succeed.</p>
     </div>
 </section>
@@ -162,6 +161,14 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
 <section class="section" id="services">
     <h2 style="text-align: center; margin-bottom: 40px;">Our Financial Solutions</h2>
     <div class="services-grid">
+        <div class="card">
+            <div>
+                <h3>Non Real Estate Business Funding</h3>
+                <p>Lines of credit, refinance, loans for equipment, inventory, and working capital. Get funded in 3-7 business days, minimal docs needed and loans up to $15 million. Minimum 585 credit score.</p>
+            </div>
+            <a href="https://form.jotform.com/252953082084156">Apply Now</a>
+        </div>
+
         <div class="card">
             <div>
                 <h3>Investment Real Estate Loans</h3>
@@ -172,15 +179,7 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
         
         <div class="card">
             <div>
-                <h3>Non Real Estate Business Funding</h3>
-                <p>Lines of credit, refinance, loans for equipment, inventory, and working capital. Get funded in 3-7 business days, minimal docs needed and loans up to $15 million. Minimum 585 credit score.</p>
-            </div>
-            <a href="https://form.jotform.com/252953082084156">Apply Now</a>
-        </div>
-        
-        <div class="card">
-            <div>
-                <h3>Fractional CFO</h3>
+                <h3>Fractional CFO & Business Consulting</h3>
                 <p>Strategic financial management, cash flow analysis, and growth advisory.</p>
             </div>
             <a href="https://pci.jotform.com/form/252985227929170" class="btn-small">Request Pricing</a>
@@ -188,9 +187,9 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
     </div>
 </section>
 
-<footer>
+<footer id="contact">
     <div class="container-narrow">
-        <h2 style="color:var(--white);">Contact Our Office</h2>
+        <h2 style="color:var(--white);">Speak with a financial advisor or loan officer</h2>
         <p style="margin: 15px 0;"><a href="mailto:Bernardconsultingservices@gmail.com" style="color:var(--brand-green); font-size: 1rem; font-weight: 600; text-decoration: none;">Bernardconsultingservices@gmail.com</a></p>
 
         <div class="footer-links">
@@ -238,9 +237,7 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
 </div>
 
 <script>
-    // COMBINED CALCULATION ENGINE
     function runAllCalcs() {
-        // Simple Loan Calc
         const lAmtInput = document.getElementById('loanAmt');
         const lRateInput = document.getElementById('loanRate');
         const lTermInput = document.getElementById('loanTerm');
@@ -258,7 +255,6 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
             document.getElementById('monthlyLabel').innerText = '$0.00';
         }
 
-        // Business Cash Flow Calc (Replaced RE Proforma)
         const b_rev = parseFloat(document.getElementById('b_rev').value) || 0;
         const b_cogs = parseFloat(document.getElementById('b_cogs').value) || 0;
         
@@ -279,7 +275,6 @@ We guarantee speed, the best financing rates and terms by matching your deal wit
         document.getElementById('b_ncfText').innerText = '$' + b_ncf.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
     }
 
-    // MODAL TAB SYSTEM
     function openLegal(tab) {
         const modal = document.getElementById('legalModal');
         const terms = document.getElementById('termsContent');
