@@ -38,7 +38,9 @@
             color: var(--white); padding: 100px 10%; text-align: center;
         }
         .hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; max-width: 850px; margin-left: auto; margin-right: auto; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; max-width: 850px; margin-left: auto; margin-right: auto; text-align: left; }
+        .hero ul { text-align: left; max-width: 850px; margin: 0 auto 30px auto; padding-left: 20px; font-size: 1.1rem; opacity: 0.9; }
+        .hero li { margin-bottom: 5px; }
 
         /* Content Structure */
         .section { padding: 80px 10%; }
@@ -99,26 +101,45 @@
 
 <section class="hero" style="display: flex; flex-direction: column; align-items: center;">
     <img src="logo.jpg" alt="Bernard Consulting Services Logo" style="height: 120px; width: auto; margin-bottom: 25px; background: white; padding: 10px; border-radius: 8px;">
-    <h1>Management Consulting, Financial Strategy & Debt Advisory</h1>
-    <p>Empowering operating businesses with $250M+ in business purpose loans & Expert CFO Advisory. We guarantee speed, the best financing rates and terms by partnering with top tier lenders who are best positioned to fund your business objectives. Our strategic relationships with banking partners allows us to move with speed and precision so you can preserve your hard earned cash.</p>
+    <h1>Capital Markets & M&A Advisory</h1>
+    <p>We partner with corporations, investors and business owners to assist in scaling operations while contributing to succession planning through responsible Capital Markets & M&A Advisory.</p>
+    
+    <p><strong>Capital Solutions & Products:</strong><br>Debt & Equity Capital (Up to $100M+)</p>
+    <ul>
+        <li>1. Business acquisition lending</li>
+        <li>2. Short term funding/working capital</li>
+        <li>3. Lines of credit</li>
+        <li>4. Succession equity (Must be controlling interest)</li>
+        <li>5. Recapitalization</li>
+        <li>6. Partner buyout</li>
+        <li>7. Bridge loans (Commercial real estate)</li>
+    </ul>
+
+    <p><strong>Capital Partners:</strong></p>
+    <ul>
+        <li>1. Private credit funds</li>
+        <li>2. Non bank lending institutions</li>
+        <li>3. Private equity & family offices</li>
+        <li>4. Commercial & regional banks</li>
+    </ul>
 </section>
 
 <div class="container-narrow" id="estimators" style="margin-top: -60px;">
     <div class="calc-card">
-        <h3 style="text-align: center; margin-bottom: 25px;">Commercial Loan Estimator</h3>
+        <h3 style="text-align: center; margin-bottom: 25px;">Capital Markets Debt Estimator</h3>
         <div class="calc-grid">
-            <div class="input-group"><label>Loan Amount ($)</label><input type="number" id="loanAmt" value="750000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Facility Amount ($)</label><input type="number" id="loanAmt" value="750000" oninput="runAllCalcs()"></div>
             <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="loanRate" value="7.25" step="0.1" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Term (Years)</label><input type="number" id="loanTerm" value="25" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Amortization (Years)</label><input type="number" id="loanTerm" value="25" oninput="runAllCalcs()"></div>
         </div>
         <div class="result-display">
-            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Estimated Monthly Payment</span>
+            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Estimated Monthly Debt Service</span>
             <span id="monthlyLabel" class="price-tag">$0.00</span>
         </div>
     </div>
 
     <div class="calc-card">
-        <h3 style="text-align: center; margin-bottom: 10px;">Business Cash Flow Proforma</h3>
+        <h3 style="text-align: center; margin-bottom: 10px;">Corporate Cash Flow Proforma</h3>
         <div class="proforma-header">Revenue & Direct Costs</div>
         <div class="calc-grid">
             <div class="input-group"><label>Gross Revenue ($)</label><input type="number" id="b_rev" value="1500000" oninput="runAllCalcs()"></div>
@@ -134,14 +155,14 @@
         </div>
         <div class="subtotal-row"><span>Total Annual OpEx</span><span id="b_opexText" style="color:#e53e3e">$0</span></div>
 
-        <div class="proforma-header">Debt & Taxes</div>
+        <div class="proforma-header">Leverage & Tax Considerations</div>
         <div class="calc-grid">
             <div class="input-group"><label>Annual Debt Service ($)</label><input type="number" id="b_debt" value="85000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Estimated Taxes ($)</label><input type="number" id="b_tax" value="45000" oninput="runAllCalcs()"></div>
+            <div class="input-group"><label>Estimated Corporate Taxes ($)</label><input type="number" id="b_tax" value="45000" oninput="runAllCalcs()"></div>
         </div>
 
         <div class="result-display" style="background: #2d3748;">
-            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (After Debt & Taxes)</span>
+            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (Post-Leverage & Tax)</span>
             <span id="b_ncfText" class="price-tag">$0.00</span>
         </div>
     </div>
@@ -150,63 +171,63 @@
 <section class="section" id="about">
     <div class="container-narrow">
         <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Why Bernard Consulting?</h2>
-        <p>Bernard Consulting Services LLC specializes in <strong>Strategic Financial Management</strong>. We aren't just providing a loan product; we are decades-long experts in management consulting, financial analysis and asset acquisition.</p>
+        <p>Bernard Consulting Services LLC specializes in <strong>Capital Markets Solutions & M&A Advisory</strong>. We aren't just transactional brokers; we are decades-long experts in investment banking architecture, strategic financial analysis, and corporate asset acquisition.</p>
         
-        <p style="margin-top: 15px;">As a debt advisor, Bernard Consulting Services LLC doesn't just provide capital. We assess your company's financial position and current capital structure to provide a loan product that's tailored to meet or exceed your overall business strategy, short and long term goals.</p>
+        <p style="margin-top: 15px;">As an M&A and corporate debt advisor, Bernard Consulting Services LLC doesn't just clear capital. We assess your company's fiscal position and current capital structure to engineer an optimized capitalization strategy tailored to meet or exceed your overall corporate objectives, transition plans, and long-term goals.</p>
 
-        <p style="margin-top: 15px;">Many "loan brokers" or "lenders" present business owners with multiple options that fail to align with their vision or meet strategic needs. We take the time to understand you and your life's hard work.</p>
+        <p style="margin-top: 15px;">Many conventional transactional firms present corporations with capital structures that fail to align with their operational vision or strategic mandates. We take the time to understand your institutional legacy and corporate goals.</p>
 
-        <p style="margin-top: 15px;">Our unique "Fractional CFO" approach means we don't just find you a loan; we analyze your capital structure, maximize your profit potential, and ensure your dream has the financial foundation to succeed.</p>
+        <p style="margin-top: 15px;">Our unique "M&A Advisory" approach means we don't just secure institutional funding; we optimize your capital structure, maximize shareholder value, and ensure your succession strategy or acquisition roadmap is structurally sound.</p>
     </div>
 </section>
 
 <section class="section" id="process" style="background: #edf2f7;">
     <div class="container-narrow">
         <h2 style="text-align: center; margin-bottom: 10px;">Precision & Speed</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Our streamlined path to securing your business capital.</p>
+        <p style="text-align: center; margin-bottom: 40px;">Our streamlined institutional path to corporate capitalization and transaction execution.</p>
         <div class="process-grid">
             <div class="process-step">
                 <span class="step-num">01</span>
-                <h3>Strategic Discovery</h3>
-                <p>We analyze your current financials and identify the best capital structure for your specific goals.</p>
+                <h3>Strategic Mandate</h3>
+                <p>We analyze your current corporate financials and formulate the optimal capitalization structure for your specific transaction goals.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">02</span>
-                <h3>Lender Matching</h3>
-                <p>We leverage our strategic banking relationships to find top-tier lenders ready to fund your deal.</p>
+                <h3>Syndication & Syndicates</h3>
+                <p>We leverage our strategic relationships with private equity, family offices, and commercial banks to syndicate your placement.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">03</span>
-                <h3>Capital Infusion</h3>
-                <p>Execute with precision. We move fast so you can focus on operating your business.</p>
+                <h3>Deal Execution</h3>
+                <p>Execute with absolute precision. We move fast at the closing table so you can maintain operational momentum.</p>
             </div>
         </div>
     </div>
 </section>
 
 <section class="section" id="services">
-    <h2 style="text-align: center; margin-bottom: 40px;">Our Financial Solutions</h2>
+    <h2 style="text-align: center; margin-bottom: 40px;">Our Capital Solutions</h2>
     <div class="services-grid">
         <div class="card">
             <div>
-                <h3>Non Real Estate Business Funding</h3>
-                <p>High-speed capital solutions including lines of credit, equipment financing, inventory loans, partner buyout, business acquisition and working capital. We specialize in fast-tracked approvals with **funding in as little as 3-7 business days**. Minimal documentation is required for loans up to $15 million. Minimum 585 credit score accepted.</p>
+                <h3>Corporate Debt & Equity Origination</h3>
+                <p>High-speed, institutional capital solutions including lines of credit, recapitalizations, partner buyouts, and business acquisition financing up to $100M+. We specialize in fast-tracked capital structure optimizations with streamlined advisory timelines, utilizing deep institutional relationships to fund major enterprise objectives.</p>
             </div>
             <a href="https://form.jotform.com/260862164116050" class="btn-small">Apply Now</a>
         </div>
 
         <div class="card">
             <div>
-                <h3>Investment Real Estate Loans</h3>
-                <p>Multi-family, Retail, and Hospitality financing with LTVs up to 90%. Tailored for sophisticated investors.</p>
+                <h3>M&A Real Estate & Bridge Solutions</h3>
+                <p>Commercial real estate capital structures and bridge facilities for multi-family, retail, and hospitality assets. Tailored for sophisticated institutional investors and large-scale asset acquisitions.</p>
             </div>
             <a href="https://form.jotform.com/260862552873061" class="btn-small">Apply Now</a>
         </div>
         
         <div class="card">
             <div>
-                <h3>Fractional CFO & Business Consulting</h3>
-                <p>Strategic financial management, cash flow analysis, and growth advisory for growing enterprises.</p>
+                <h3>M&A Advisory & Succession Planning</h3>
+                <p>Strategic capital market consulting, valuation alignment, cash flow recapitalization, and transition governance for growing corporate enterprises.</p>
             </div>
             <a href="https://form.jotform.com/260863127544055" class="btn-small">Request Pricing</a>
         </div>
@@ -215,7 +236,7 @@
 
 <footer id="contact">
     <div class="container-narrow">
-        <h2 style="color:var(--white);">Speak with a financial advisor</h2>
+        <h2 style="color:var(--white);">Speak with an M&A advisor</h2>
         <p style="margin: 15px 0;"><a href="mailto:Bernardconsultingservices@gmail.com" style="color:var(--brand-green); font-size: 1rem; font-weight: 600; text-decoration: none;">Bernardconsultingservices@gmail.com</a></p>
         <div class="footer-links">
             <button onclick="openLegal('terms')">Terms & Conditions</button>
@@ -258,36 +279,20 @@
         terms: `
             <h2>Terms and Conditions</h2>
             <p>Last Updated: March 2026</p>
-            <h3>1. No Investment Products</h3>
-            <p>Bernard Consulting Services LLC is a business consulting and debt advisory firm. <strong>We do not sell, offer, or manage investment products, securities, or financial instruments.</strong> Our services are strictly limited to business purpose loans and strategic consulting.</p>
+            <h3>1. No Retail Investment Products</h3>
+            <p>Bernard Consulting Services LLC is a corporate finance, capital markets, and M&A advisory firm. <strong>We do not sell, offer, or manage retail investment products, retail securities, or public financial instruments.</strong> Our services are strictly limited to institutional capital solutions, corporate debt/equity structuring, and strategic transactional advisory.</p>
             <h3>2. Service Disclaimer</h3>
-            <p>Estimates provided by calculators are for illustrative purposes and do not constitute a formal loan offer. All funding is subject to lender approval, creditworthiness, and due diligence.</p>
+            <p>Estimates provided by calculators are for illustrative structural purposes and do not constitute a formal commitment to fund or a binding transactional underwriting offer. All capitalization structures are subject to definitive legal documentation, partner alignment, and strict due diligence.</p>
             <h3>3. Limitation of Liability</h3>
-            <p>To the fullest extent permitted by law, Bernard Consulting Services LLC shall not be liable for any financial losses or damages resulting from your use of our advisory services, calculators, or website content.</p>
+            <p>To the fullest extent permitted by law, Bernard Consulting Services LLC shall not be liable for any transaction impairments, financial losses, or corporate damages resulting from your use of our advisory services, calculators, or website content.</p>
             <h3>4. External Links</h3>
-            <p>We use Jotform for application intake. Your use of these third-party forms is subject to their independent terms.</p>
+            <p>We use Jotform for intake mandates. Your use of these third-party forms is subject to their independent terms.</p>
         `,
         privacy: `
             <h2>Privacy Policy</h2>
-            <p>Your privacy is vital to us. This policy explains how we handle your sensitive data.</p>
+            <p>Your privacy is vital to us. This policy explains how we handle your sensitive financial data.</p>
             <h3>1. Data Collection & Usage</h3>
-            <p>We collect personal and financial information provided through our application forms solely to assess eligibility for business funding.</p>
-            <h3>2. Third-Party Sharing</h3>
-            <p><strong>Notice: We share your data with trusted third-party lenders and financial institutional partners</strong> exclusively to facilitate the securing of capital. By submitting an application, you consent to this sharing for the purpose of obtaining a loan.</p>
-            <h3>3. Data Protection</h3>
-            <p>We implement industry-standard security measures to protect your information. <strong>We do not sell your personal data</strong> to third-party marketing firms.</p>
-            <h3>4. Contact</h3>
-            <p>For data requests or removal, please contact us at Bernardconsultingservices@gmail.com.</p>
-        `
-    };
-
-    function openLegal(type) {
-        document.getElementById('legalContent').innerHTML = legalData[type];
-        document.getElementById('legalModal').style.display = 'block';
-    }
-    function closeLegal() { document.getElementById('legalModal').style.display = 'none'; }
-    window.onclick = function(event) { if (event.target == document.getElementById('legalModal')) closeLegal(); }
-    window.onload = runAllCalcs;
-</script>
-</body>
-</html>
+            <p>We collect corporate, strategic, and financial information provided through our mandate intake forms solely to assess deal alignment for capital markets placement and M&A advisory transactions.</p>
+            <h3>2. Strategic Partner Sharing</h3>
+            <p><strong>Notice: We share transaction data with trusted private credit funds, private equity firms, family offices, and institutional banking partners</strong> exclusively to facilitate the structuring and syndication of capital. By submitting an application or layout, you consent to this strategic sharing for deal arrangement purposes.</p>
+            <h3>3. Data
