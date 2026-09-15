@@ -4,8 +4,8 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Financial Suite | Bernard Consulting Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Management Consulting & Corporate Financial Advisory | Bernard Consulting Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #0a2540;
@@ -21,7 +21,7 @@
         body { font-family: 'Open Sans', sans-serif; color: var(--text-main); line-height: 1.6; background: var(--light-bg); }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--brand-blue); }
 
-        /* Navigation - Process Link Removed, Contact Fixed */
+        /* Navigation */
         nav {
             background: var(--white); padding: 1.2rem 10%;
             display: flex; justify-content: flex-end; align-items: center;
@@ -31,42 +31,46 @@
         .nav-links a { margin-left: 25px; text-decoration: none; color: var(--brand-blue); font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--brand-green); }
 
-        /* Hero */
+        /* Hero Header */
         .hero {
-            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(10, 37, 64, 0.88), rgba(10, 37, 64, 0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; background-position: center;
-            color: var(--white); padding: 100px 10%; text-align: center;
+            color: var(--white); padding: 90px 10% 80px; text-align: center;
         }
-        .hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; max-width: 850px; margin-left: auto; margin-right: auto; text-align: left; }
-        .hero ul { text-align: left; max-width: 850px; margin: 0 auto 30px auto; padding-left: 20px; font-size: 1.1rem; opacity: 0.9; }
-        .hero li { margin-bottom: 5px; }
+        .hero h1 { color: var(--white); font-size: 2.4rem; margin-bottom: 20px; line-height: 1.25; letter-spacing: -0.5px; }
+        .hero p.lead { font-size: 1.15rem; opacity: 0.95; margin-bottom: 20px; max-width: 850px; margin-left: auto; margin-right: auto; text-align: center; line-height: 1.6; }
+        
+        .hero-list-container {
+            text-align: left; max-width: 800px; margin: 25px auto; padding: 25px 30px; 
+            background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--brand-green); border-radius: 4px;
+        }
+        .hero-list-container h3 { color: var(--brand-green); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .hero-list-container ul { list-style-type: none; padding-left: 0; font-size: 1rem; opacity: 0.95; }
+        .hero-list-container li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .hero-list-container li::before { content: "■"; color: var(--brand-green); font-size: 0.7rem; position: absolute; left: 0; top: 2px; }
 
         /* Content Structure */
         .section { padding: 80px 10%; }
         .container-narrow { max-width: 900px; margin: 0 auto; }
-        .btn-small { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--brand-blue); color: var(--white); text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 0.8rem; text-align: center; border: none; cursor: pointer; }
+        .btn-small { display: inline-block; margin-top: 15px; padding: 12px 24px; background: var(--brand-green); color: var(--brand-blue); text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 0.85rem; text-align: center; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-small:hover { background: #00b89c; }
+        .btn-dark { background: var(--brand-blue); color: var(--white); }
+        .btn-dark:hover { background: #14385c; }
         
-        /* Cards & Grids */
-        .calc-card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 40px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: #fff; padding: 35px; border-radius: 8px; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
-        .card:hover { border-color: var(--brand-green); transform: translateY(-5px); }
+        /* Services Grids */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: #fff; padding: 35px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .card:hover { border-color: var(--brand-green); transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .card h3 { margin-bottom: 12px; font-size: 1.2rem; }
 
         /* Process Section */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .process-step { background: var(--white); padding: 30px; border-radius: 8px; border-top: 4px solid var(--brand-green); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .step-num { font-size: 2rem; font-weight: 700; color: var(--brand-green); display: block; margin-bottom: 10px; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .process-step { background: var(--white); padding: 30px; border-radius: 8px; border-top: 4px solid var(--brand-green); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.04); }
+        .step-num { font-size: 1.8rem; font-weight: 700; color: var(--brand-green); display: block; margin-bottom: 8px; }
 
-        /* Calculator Styling */
-        .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .input-group { display: flex; flex-direction: column; margin-bottom: 15px; text-align: left; }
-        label { font-size: 0.7rem; font-weight: 700; margin-bottom: 8px; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 0.5px; }
-        input { padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; color: var(--brand-blue); }
-        .proforma-header { border-bottom: 2px solid var(--brand-green); margin: 30px 0 15px; padding-bottom: 5px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; color: var(--brand-blue); }
-        .subtotal-row { display: flex; justify-content: space-between; padding: 12px; background: #f8fafc; border-radius: 4px; margin: 10px 0; font-weight: 600; font-size: 0.9rem; }
-        .result-display { background: var(--brand-blue); color: var(--white); padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px; }
-        .price-tag { font-size: 2.2rem; font-weight: 700; color: var(--brand-green); display: block; }
+        /* Industries Grid */
+        .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 30px; }
+        .industry-card { background: var(--white); padding: 22px 25px; border-radius: 6px; border-left: 4px solid var(--brand-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.03); font-weight: 700; color: var(--brand-blue); font-size: 1.05rem; }
 
         /* Footer */
         footer { background: var(--brand-blue); color: var(--white); padding: 60px 10% 40px; text-align: center; }
@@ -93,155 +97,126 @@
 <nav>
     <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#estimators">Estimators</a>
-        <a href="#services">Services</a>
+        <a href="#services">Services & Solutions</a>
+        <a href="#industries">Industries</a>
+        <a href="#process">Execution Path</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <section class="hero" style="display: flex; flex-direction: column; align-items: center;">
-    <img src="logo.jpg" alt="Bernard Consulting Services Logo" style="height: 120px; width: auto; margin-bottom: 25px; background: white; padding: 10px; border-radius: 8px;">
-    <h1>Capital Markets & M&A Advisory</h1>
-    <p>We partner with corporations, investors and business owners to assist in leading liquidity events that scale operations and contributes to succession planning through responsible Capital Markets & M&A Advisory.</p>
+    <img src="logo.jpg" alt="Bernard Consulting Services Logo" style="height: 110px; width: auto; margin-bottom: 25px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
     
-    <p><strong>Capital Solutions & Products:</strong><br>Debt & Equity Capital (Up to $100M+)</p>
+    <h1>Management Consulting - Capital Markets - M&A</h1>
     
-    <a href="https://form.jotform.com/260862164116050" class="btn-small" style="margin-top: -10px; margin-bottom: 25px; background: var(--brand-green); color: var(--brand-blue);">Access Institutional Capital</a>
+    <p class="lead">Bernard Consulting Services LLC is a mid market management consultant and corporate financial advisory firm. We partner with companies or owners of assets who seek strategic expansion opportunities, liquidity events, operational efficiency, financial planning and more.</p>
 
-    <ul>
-        <li>1. Business Acquisition Lending</li>
-        <li>2. Partner Buyout</li>
-        <li>3. Recapitalization</li>
-        <li>4. Succession Equity (Must be controlling interest)</li>
-        <li>5. Line Of Credit/Expansion Loans/Equipment Financing/Short Term Funding/Working Capital</li>
-        <li>6. Complex Capital Stack
-        </li>
-        <li>7. Bridge Loans (Commercial real estate)</li>
-    </ul>
+    <p class="lead">We can assist whether you're looking to acquire an established business, entering new markets, launching new product lines, considering an exit, analysing commercial leases and more!</p>
 
-    <p><strong>Capital Partners:</strong></p>
-    <ul>
-        <li>1. Private credit funds</li>
-        <li>2. Non bank lending institutions</li>
-        <li>3. Private equity & family offices</li>
-        <li>4. Commercial & regional banks</li>
-    </ul>
+    <div class="hero-list-container">
+        <h3>Strategic Mandates We Lead:</h3>
+        <ul>
+            <li>Business Acquisition Strategy & Capital Structuring</li>
+            <li>Partner Buyout Governance & Recapitalization</li>
+            <li>Expansion Capital Planning & Equipment Financing Advisory</li>
+            <li>Complex Capital Stack Advisory & Strategic Bridge Solutions</li>
+            <li>Commercial Lease Analysis & Market Expansion Advisory</li>
+        </ul>
+    </div>
+
+    <a href="mailto:Bernardconsultingservices@gmail.com" class="btn-small" style="margin-top: 10px;">For Serious Inquiries: Bernardconsultingservices@gmail.com</a>
 </section>
-
-<div class="container-narrow" id="estimators" style="margin-top: -60px;">
-    <div class="calc-card">
-        <h3 style="text-align: center; margin-bottom: 25px;">Capital Markets Debt Estimator</h3>
-        <div class="calc-grid">
-            <div class="input-group"><label>Facility Amount ($)</label><input type="number" id="loanAmt" value="750000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="loanRate" value="7.25" step="0.1" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Amortization (Years)</label><input type="number" id="loanTerm" value="25" oninput="runAllCalcs()"></div>
-        </div>
-        <div class="result-display">
-            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Estimated Monthly Debt Service</span>
-            <span id="monthlyLabel" class="price-tag">$0.00</span>
-        </div>
-    </div>
-
-    <div class="calc-card">
-        <h3 style="text-align: center; margin-bottom: 10px;">Corporate Cash Flow Proforma</h3>
-        <div class="proforma-header">Revenue & Direct Costs</div>
-        <div class="calc-grid">
-            <div class="input-group"><label>Gross Revenue ($)</label><input type="number" id="b_rev" value="1500000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Cost of Goods Sold (COGS) ($)</label><input type="number" id="b_cogs" value="600000" oninput="runAllCalcs()"></div>
-        </div>
-        <div class="subtotal-row"><span>Gross Profit</span><span id="b_gpText">$0</span></div>
-
-        <div class="proforma-header">Operating Expenses</div>
-        <div class="calc-grid">
-            <div class="input-group"><label>Payroll & Benefits ($)</label><input type="number" id="b_pay" value="350000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Marketing & Ads ($)</label><input type="number" id="b_mark" value="75000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>General & Admin ($)</label><input type="number" id="b_ga" value="120000" oninput="runAllCalcs()"></div>
-        </div>
-        <div class="subtotal-row"><span>Total Annual OpEx</span><span id="b_opexText" style="color:#e53e3e">$0</span></div>
-
-        <div class="proforma-header">Leverage & Tax Considerations</div>
-        <div class="calc-grid">
-            <div class="input-group"><label>Annual Debt Service ($)</label><input type="number" id="b_debt" value="85000" oninput="runAllCalcs()"></div>
-            <div class="input-group"><label>Estimated Corporate Taxes ($)</label><input type="number" id="b_tax" value="45000" oninput="runAllCalcs()"></div>
-        </div>
-
-        <div class="result-display" style="background: #2d3748;">
-            <span style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.8;">Net Cash Flow (Post-Leverage & Tax)</span>
-            <span id="b_ncfText" class="price-tag">$0.00</span>
-        </div>
-    </div>
-</div>
 
 <section class="section" id="about">
     <div class="container-narrow">
-        <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Why Bernard Consulting?</h2>
-        <p>Bernard Consulting Services LLC specializes in <strong>Capital Markets Solutions & M&A Advisory</strong>. We aren't just transactional brokers; we are decades-long experts in investment banking architecture, strategic financial analysis, and corporate asset acquisition.</p>
+        <h2 style="border-left: 5px solid var(--brand-green); padding-left: 20px; margin-bottom: 20px;">Institutional Expertise & Management Leadership</h2>
+        <p>Our partners have decades of strategic financial and managerial planning experience across various industries and business activities.</p>
         
-        <p style="margin-top: 15px;">As an M&A and corporate debt advisor, Bernard Consulting Services LLC doesn't just clear capital. We assess your company's fiscal position and current capital structure to engineer an optimized capitalization strategy tailored to meet or exceed your overall corporate objectives, transition plans, and long-term goals.</p>
+        <p style="margin-top: 15px;">We assess your company's fiscal position and current capital structure to engineer an optimized capitalization strategy tailored to meet or exceed your overall corporate objectives, transition plans, and long-term goals.</p>
 
-        <p style="margin-top: 15px;">Many conventional transactional firms present corporations with capital structures that fail to align with their operational vision or strategic mandates. We take the time to understand your institutional legacy and corporate goals.</p>
-
-        <p style="margin-top: 15px;">Our unique "M&A Advisory" approach means we don't just secure institutional funding; we optimize your capital structure, maximize shareholder value, and ensure your succession strategy or acquisition roadmap is structurally sound.</p>
+        <p style="margin-top: 15px;">Many conventional advisory strategies fail to align with a firm's operational vision or strategic mandates. We take the time to understand your institutional legacy and corporate goals to maximize shareholder value, optimize capital structure, and ensure your acquisition roadmap or succession plan is structurally sound.</p>
     </div>
 </section>
 
-<section class="section" id="process" style="background: #edf2f7;">
+<section class="section" id="services" style="background: #ffffff;">
     <div class="container-narrow">
-        <h2 style="text-align: center; margin-bottom: 10px;">Precision & Speed</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Our streamlined institutional path to corporate capitalization and transaction execution.</p>
+        <h2 style="text-align: center; margin-bottom: 10px;">Advisory & Capital Solutions</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: var(--text-main);">Comprehensive management and corporate financial advisory structured for enterprise scaling.</p>
+        
+        <div class="services-grid">
+            <div class="card">
+                <div>
+                    <h3>Management Consulting & Operations</h3>
+                    <p>Strategic managerial planning focused on operational efficiency, commercial lease analysis, new product line rollouts, and geographic market entry to enhance overall productivity and margin performance.</p>
+                </div>
+                <a href="mailto:Bernardconsultingservices@gmail.com" class="btn-small btn-dark">Consulting Inquiry</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Capital Structure & Corporate Finance</h3>
+                    <p>Advisory on capital structure optimization, liquidity planning, working capital reserves, lines of credit, and expansion financing engineered to support sustainable enterprise growth.</p>
+                </div>
+                <a href="https://form.jotform.com/260862164116050" class="btn-small">Request Capital Advisory</a>
+            </div>
+            
+            <div class="card">
+                <div>
+                    <h3>M&A Advisory & Succession Planning</h3>
+                    <p>Strategic financial guidance, valuation alignment, business acquisition analysis, recapitalization, and transition governance designed to execute successful liquidity events.</p>
+                </div>
+                <a href="https://form.jotform.com/260863127544055" class="btn-small">Request M&A Advisory</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="industries" style="background: #edf2f7;">
+    <div class="container-narrow">
+        <h2 style="text-align: center; margin-bottom: 10px;">Some of the Industries We Serve</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Delivering deep cross-sector management and financial experience across key enterprise markets.</p>
+        
+        <div class="industry-grid">
+            <div class="industry-card">1. Manufacturing</div>
+            <div class="industry-card">2. Retail</div>
+            <div class="industry-card">3. Oil & Gas</div>
+            <div class="industry-card">4. Construction</div>
+            <div class="industry-card">5. Healthcare</div>
+            <div class="industry-card">6. Investment Real Estate</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="process" style="background: #ffffff;">
+    <div class="container-narrow">
+        <h2 style="text-align: center; margin-bottom: 10px;">Precision Execution</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Our institutional framework for strategic advisory and corporate financial execution.</p>
         <div class="process-grid">
             <div class="process-step">
                 <span class="step-num">01</span>
                 <h3>Strategic Mandate</h3>
-                <p>We analyze your current corporate financials and formulate the optimal capitalization structure for your specific transaction goals.</p>
+                <p>We analyze your current corporate financials and formulate the optimal strategy for your specific business goals.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">02</span>
-                <h3>Syndication & Syndicates</h3>
-                <p>We leverage our strategic relationships with private equity, family offices, and commercial banks to syndicate your placement.</p>
+                <h3>Financial Architecture</h3>
+                <p>We structure capital solutions and operational frameworks aligned with key corporate stakeholders and growth milestones.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">03</span>
                 <h3>Deal Execution</h3>
-                <p>Execute with absolute precision. We move fast at the closing table so you can maintain operational momentum.</p>
+                <p>Execute with absolute precision so you can maintain operational momentum and preserve competitive advantage.</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="services">
-    <h2 style="text-align: center; margin-bottom: 40px;">Our Capital Solutions</h2>
-    <div class="services-grid">
-        <div class="card">
-            <div>
-                <h3>Corporate Debt Origination</h3>
-                <p>High-speed, institutional capital solutions including lines of credit, recapitalizations, partner buyouts, and business acquisition financing up to $100M+. We specialize in fast-tracked capital structure optimizations with streamlined advisory timelines, utilizing deep institutional relationships to fund major enterprise objectives.</p>
-            </div>
-            <a href="https://form.jotform.com/260862164116050" class="btn-small">Apply Now</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <h3>M&A Real Estate & Bridge Solutions</h3>
-                <p>Commercial real estate capital structures and bridge facilities for multi-family, retail, and hospitality assets. Tailored for sophisticated institutional investors and large-scale asset acquisitions.</p>
-            </div>
-            <a href="https://form.jotform.com/260862552873061" class="btn-small">Apply Now</a>
-        </div>
-        
-        <div class="card">
-            <div>
-                <h3>M&A Advisory & Succession Planning</h3>
-                <p>Strategic capital market consulting, valuation alignment, cash flow recapitalization, and transition governance for growing corporate enterprises.</p>
-            </div>
-            <a href="https://form.jotform.com/260863127544055" class="btn-small">Request Pricing</a>
         </div>
     </div>
 </section>
 
 <footer id="contact">
     <div class="container-narrow">
-        <h2 style="color:var(--white);">Speak with an advisor</h2>
-        <p style="margin: 15px 0;"><a href="mailto:Bernardconsultingservices@gmail.com" style="color:var(--brand-green); font-size: 1rem; font-weight: 600; text-decoration: none;">Bernardconsultingservices@gmail.com</a></p>
+        <h2 style="color:var(--white);">Speak With an Advisor</h2>
+        <p style="margin-top: 10px; opacity: 0.85;">For serious inquiries only:</p>
+        <p style="margin: 15px 0;"><a href="mailto:Bernardconsultingservices@gmail.com" style="color:var(--brand-green); font-size: 1.1rem; font-weight: 600; text-decoration: none;">Bernardconsultingservices@gmail.com</a></p>
+        
         <div class="footer-links">
             <button onclick="openLegal('terms')">Terms & Conditions</button>
             <button onclick="openLegal('privacy')">Privacy Policy</button>
@@ -258,44 +233,43 @@
 </div>
 
 <script>
-    function runAllCalcs() {
-        const lAmt = parseFloat(document.getElementById('loanAmt').value) || 0;
-        const lRate = (parseFloat(document.getElementById('loanRate').value) / 100) / 12;
-        const lTerm = (parseFloat(document.getElementById('loanTerm').value) || 0) * 12;
-        if (lRate > 0 && lTerm > 0) {
-            const lX = Math.pow(1 + lRate, lTerm);
-            const lMonthly = (lAmt * lX * lRate) / (lX - 1);
-            document.getElementById('monthlyLabel').innerText = '$' + lMonthly.toLocaleString(undefined,{minimumFractionDigits: 2});
-        }
-        const b_rev = parseFloat(document.getElementById('b_rev').value) || 0;
-        const b_cogs = parseFloat(document.getElementById('b_cogs').value) || 0;
-        const b_gp = b_rev - b_cogs;
-        document.getElementById('b_gpText').innerText = '$' + b_gp.toLocaleString();
-        const b_opex = (parseFloat(document.getElementById('b_pay').value) || 0) + (parseFloat(document.getElementById('b_mark').value) || 0) + (parseFloat(document.getElementById('b_ga').value) || 0);
-        document.getElementById('b_opexText').innerText = '-$' + b_opex.toLocaleString();
-        const b_debt = parseFloat(document.getElementById('b_debt').value) || 0;
-        const b_tax = parseFloat(document.getElementById('b_tax').value) || 0;
-        const b_ncf = b_gp - b_opex - b_debt - b_tax;
-        document.getElementById('b_ncfText').innerText = '$' + b_ncf.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-
     const legalData = {
         terms: `
             <h2>Terms and Conditions</h2>
-            <p>Last Updated: March 2026</p>
-            <h3>1. No Retail Investment Products</h3>
-            <p>Bernard Consulting Services LLC is a corporate finance, capital markets, and M&A advisory firm. <strong>We do not sell, offer, or manage retail investment products, retail securities, or public financial instruments.</strong> Our services are strictly limited to institutional capital solutions, corporate debt/equity structuring, and strategic transactional advisory.</p>
+            <p>Last Updated: 2026</p>
+            <h3>1. Corporate Financial & Management Advisory</h3>
+            <p>Bernard Consulting Services LLC is a management consulting and corporate financial advisory firm. <strong>We do not sell, offer, or manage retail investment products or retail securities.</strong> Our services are strictly focused on strategic management consulting, capital structure planning, and M&A advisory for corporate entities and asset owners.</p>
             <h3>2. Service Disclaimer</h3>
-            <p>Estimates provided by calculators are for illustrative structural purposes and do not constitute a formal commitment to fund or a binding transactional underwriting offer. All capitalization structures are subject to definitive legal documentation, partner alignment, and strict due diligence.</p>
+            <p>Advisory engagements are executed solely through definitive legal agreements and formal consulting mandates.</p>
             <h3>3. Limitation of Liability</h3>
-            <p>To the fullest extent permitted by law, Bernard Consulting Services LLC shall not be liable for any transaction impairments, financial losses, or corporate damages resulting from your use of our advisory services, calculators, or website content.</p>
-            <h3>4. External Links</h3>
-            <p>We use Jotform for intake mandates. Your use of these third-party forms is subject to their independent terms.</p>
+            <p>Bernard Consulting Services LLC shall not be liable for corporate or financial decisions made based solely on general website content.</p>
         `,
         privacy: `
             <h2>Privacy Policy</h2>
-            <p>Your privacy is vital to us. This policy explains how we handle your sensitive financial data.</p>
+            <p>Your privacy and strategic financial confidentiality are vital to us.</p>
             <h3>1. Data Collection & Usage</h3>
-            <p>We collect corporate, strategic, and financial information provided through our mandate intake forms solely to assess deal alignment for capital markets placement and M&A advisory transactions.</p>
-            <h3>2. Strategic Partner Sharing</h3>
-            <p><strong>Notice: We share transaction data with trusted private credit
+            <p>Information provided through mandate intake forms or direct inquiries is used solely to evaluate advisory alignment and execute corporate consulting engagements.</p>
+            <h3>2. Strategic Confidentiality</h3>
+            <p>We maintain strict privacy protocols and do not share your strategic corporate data with unauthorized third parties or marketing networks.</p>
+        `
+    };
+
+    function openLegal(type) {
+        document.getElementById('legalContent').innerHTML = legalData[type];
+        document.getElementById('legalModal').style.display = 'block';
+    }
+
+    function closeLegal() {
+        document.getElementById('legalModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('legalModal');
+        if (event.target === modal) {
+            closeLegal();
+        }
+    };
+</script>
+
+</body>
+</html>
